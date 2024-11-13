@@ -1,9 +1,10 @@
-import React from 'react'
+import { LuUser2 } from 'react-icons/lu';
+import React from 'react';
 
 function UserIcon() {
   return (
-    <div>UserIcon</div>
-  )
+    <LuUser2 className='w-6 h-6 bg-primary rounded-full text-white'></LuUser2>
+  );
 }
 
-export default UserIcon
+export default UserIcon;
