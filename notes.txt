@@ -1,0 +1,1 @@
+npm install @clerk/nextjs@5.0.1 - use this for clerk installation as new version have some bugs.
