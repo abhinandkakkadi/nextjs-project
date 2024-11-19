@@ -1,25 +1,31 @@
-// 'use client';
+'use client';
 
-// import { useFormState } from 'react-dom';
-// import { useEffect } from 'react';
-// import { useToast } from '@/components/ui/use-toast';
-// import { actionFunction } from '@/utils/types';
-// import { init } from 'next/dist/compiled/webpack/webpack';
+import { useFormState } from 'react-dom';
+import { useEffect } from 'react';
+import { useToast } from '@/components/ui/use-toast';
+import { actionFunction } from '@/utils/types';
 
-// const initialState = {
-//   message: '',
-// };
+const initialState = {
+  message: '',
+};
 
-// function FormContainer({
-//   action,
-//   children,
-// }: {
-//   action: actionFunction;
-//   children: React.ReactNode;
-// }) {
-//   const [state, formAction] = useFormState(action, initialState);
+function FormContainer({
+  action,
+  children,
+}: {
+  action: actionFunction;
+  children: React.ReactNode;
+}) {
+  const [state, formAction] = useFormState(action, initialState);
+  const { toast } = useToast();
 
-//   return <form action={}>{children}</form>;
-// }
+  useEffect(() => {
+    if (state.message) {
+      toast({ description: state.message });
+    }
+  }, [state]);
 
-// // export default FormContainer;
+  return <form action={formAction}>{children}</form>;
+}
+
+export default FormContainer;
