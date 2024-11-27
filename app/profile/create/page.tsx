@@ -1,15 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 import { SubmitButton } from '@/components/form/Buttons';
 import FormContainer from '@/components/form/FormContainer';
 import FormInput from '@/components/form/FormInput';
-
-const createProfileAction = async (prevState: any, formData: FormData) => {
-  'use server';
-  const firstName = formData.get('firstName') as string;
-  console.log('user first name: ', firstName);
-  return { message: 'profile created' };
-};
+import { createProfileAction } from '@/utils/actions';
 
 function CreateProfilePage() {
   return (
