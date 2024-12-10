@@ -33,8 +33,8 @@ export const imageSchema = z.object({
 });
 
 function validateFile() {
-  const maxUploadSize = 1024 * 1024 * 1024;
-  const acceptedFilesTypes = ['/image'];
+  const maxUploadSize = 1024 * 1024;
+  const acceptedFilesTypes = ['image/'];
   return z
     .instanceof(File)
     .refine((file) => {
