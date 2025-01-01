@@ -26,7 +26,13 @@ function CountriesInput({ defaultValue }: { defaultValue?: string }) {
         </SelectTrigger>
         <SelectContent>
           {formattedCountries.map((item) => {
-            return <SelectItem key={item.code} value={item.code}></SelectItem>;
+            return (
+              <SelectItem key={item.code} value={item.code}>
+                <span className='flex items-center gap-2'>
+                  {item.flag} {item.name}
+                </span>
+              </SelectItem>
+            );
           })}
         </SelectContent>
       </Select>

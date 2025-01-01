@@ -1,10 +1,12 @@
 import FormInput from '@/components/form/FormInput';
+import ImageInput from '@/components/form/ImageInput';
 import FormContainer from '@/components/form/FormContainer';
 import { createPropertyAction } from '@/utils/actions';
 import { SubmitButton } from '@/components/form/Buttons';
 import PriceInput from '@/components/form/PriceInput';
 import CategoriesInput from '@/components/form/CategoriesInput';
 import TextAreaInput from '@/components/form/TextAreaInput';
+import CountriesInput from '@/components/form/CountriesInput';
 
 function CreatePropertyPage() {
   return (
@@ -36,7 +38,10 @@ function CreatePropertyPage() {
             name='description'
             labelText='Description (10 - 1000 words)'
           />
-          {/* text area / description */}
+          <div className='grid sm:grid-cols-2 gap-8 mt-4'>
+            <CountriesInput />
+            <ImageInput />
+          </div>
           <SubmitButton text='create rental' className='mt-12' />
         </FormContainer>
       </div>
