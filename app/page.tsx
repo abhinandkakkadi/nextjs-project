@@ -1,15 +1,20 @@
-import { Button } from '@/components/ui/button';
+import CategoriesList from '@/components/home/CategoriesList';
+import PropertiesContainer from '@/components/home/PropertiesContainer';
 
 import React from 'react';
 
-function HomePage() {
+async function HomePage({
+  searchParams,
+}: {
+  searchParams: { category?: string; search?: string };
+}) {
+  const params = await searchParams;
+  console.log('searchParams: ', params);
   return (
-    <div>
-      <h1 className='text-3xl'>HomePage</h1>
-      <Button variant='outline' size='lg' className='capitalize m-8'>
-        click me
-      </Button>
-    </div>
+    <section>
+      <CategoriesList category={params.category} search={params.search} />
+      <PropertiesContainer category={params.category} search={params.search} />
+    </section>
   );
 }
 

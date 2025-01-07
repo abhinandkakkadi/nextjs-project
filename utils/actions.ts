@@ -177,3 +177,34 @@ const renderError = (error: unknown): { message: string } => {
         : 'An unexpected error has occurred',
   };
 };
+
+export const fetchProperties = async ({
+  search = '',
+  category,
+}: {
+  search?: string;
+  category?: string;
+}) => {
+  const properties = await db.property.findMany({
+    where: {
+      category: category,
+      OR: [
+        { name: { contains: search, mode: 'insensitive' } },
+        { tagline: { contains: search, mode: 'insensitive' } },
+      ],
+    },
+    select: {
+      id: true,
+      name: true,
+      image: true,
+      tagline: true,
+      country: true,
+      price: true,
+    },
+    orderBy: {
+      createdAt: 'desc',
+    },
+  });
+
+  return properties;
+};
