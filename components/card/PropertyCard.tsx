@@ -37,11 +37,11 @@ function PropertyCard({ property }: { property: PropertyCardProps }) {
             <span className='font-semibold'>{formatCurrency(price)}</span>
             night
           </p>
-          {/* country and flag */}
+          <CountryFlagAndName countryCode={country} />
         </div>
       </Link>
       <div className='absolute top-5 right-5 z-5'>
-        {/* favorite toggle button */}
+        <FavoriteToggleButton propertyId={propertyId} />
       </div>
     </article>
   );
