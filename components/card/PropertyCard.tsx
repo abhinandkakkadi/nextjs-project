@@ -40,6 +40,7 @@ function PropertyCard({ property }: { property: PropertyCardProps }) {
           <CountryFlagAndName countryCode={country} />
         </div>
       </Link>
+      {/* This is put outside so that it does not act as a link and also we can place exactly where it needs to be */}
       <div className='absolute top-5 right-5 z-5'>
         <FavoriteToggleButton propertyId={propertyId} />
       </div>
